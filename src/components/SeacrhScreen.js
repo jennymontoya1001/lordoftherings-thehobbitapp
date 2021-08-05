@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import {movies} from '../data/movies';
 import { MovieCard } from './MovieCard';
 import {useForm} from '../hooks/useForm';
@@ -19,7 +19,7 @@ export const SeacrhScreen = ({history}) => {
 
   const {searchText} = formValues;
 
-  const moviesFiltered = getMoviesByName(searchText);
+  const moviesFiltered = useMemo(() => getMoviesByName(q), [q]);
 
   const handleSearch = (e) =>{
       e.preventDefault();
@@ -56,6 +56,16 @@ export const SeacrhScreen = ({history}) => {
                 <div className="col-7">
                     <h4> Results </h4>
                     <hr />
+                    {
+                        (q==='')
+                        && <div className="alert alert-info">Search a movie</div>
+                    }
+                    {
+                        (q !== '' && moviesFiltered.length===0)
+                        && <div className="alert alert-danger">
+                             There is no a movie with {q}
+                        </div>
+                    }
                     {
                         moviesFiltered.map(movie => (
                             <MovieCard key={movie.id} 
