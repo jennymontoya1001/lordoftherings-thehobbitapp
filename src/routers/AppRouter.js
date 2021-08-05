@@ -8,6 +8,7 @@ import {
 import { HobbitScreen } from '../components/HobbitScreen';
 import { MovieScreen } from '../components/MovieScreen';
 import { Navbar } from '../components/Navbar';
+import { SeacrhScreen } from '../components/SeacrhScreen';
 import { SeniorScreen } from '../components/SeniorScreen';
 
 export const AppRouter = () => {
@@ -17,8 +18,9 @@ export const AppRouter = () => {
                 <Navbar />
                 <Switch> 
                     <Route exact path="/senior" component={SeniorScreen} />
-                    <Route exact path="/hobbit" component={HobbitScreen } />
-                    <Route exact path="/movie/:id" component={MovieScreen } />
+                    <Route exact path="/hobbit" component={HobbitScreen} />
+                    <Route exact path="/movie/:id" component={MovieScreen} />
+                    <Route exact path="/search" component={SeacrhScreen} />
                     <Redirect to="/senior"/>
                 </Switch>
                 
