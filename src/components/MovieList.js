@@ -1,10 +1,11 @@
-import React from 'react'
+import React, {useMemo} from 'react'
 import { getMoviesByCategory } from '../selectors/getMoviesByCategory'
 import { MovieCard } from './MovieCard';
 
 export const MovieList = ({category}) => {
 
-    const movies = getMoviesByCategory(category);
+    const movies = useMemo(() => getMoviesByCategory(category), category) 
+    
 
     return (
         <div>

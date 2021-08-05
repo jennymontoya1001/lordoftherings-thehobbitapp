@@ -22,7 +22,7 @@ export const Navbar = () => {
                             exact
                             to="/senior"
                         >
-                            Marvel
+                            The Lord of the Rings
                         </NavLink>
 
                         <NavLink
@@ -31,7 +31,7 @@ export const Navbar = () => {
                             exact
                             to="/hobbit"
                         >
-                            DC
+                            The Hobbit
                         </NavLink>
                     </div>
                 </div>
