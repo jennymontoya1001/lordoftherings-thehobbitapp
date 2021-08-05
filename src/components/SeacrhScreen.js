@@ -4,6 +4,7 @@ import { MovieCard } from './MovieCard';
 import {useForm} from '../hooks/useForm';
 import {useLocation} from 'react-router-dom';
 import querystring from 'query-string'
+import {getMoviesByName} from '../selectors/getMoviesByName';
 
 export const SeacrhScreen = ({history}) => {
 
@@ -11,12 +12,14 @@ export const SeacrhScreen = ({history}) => {
     const {q = ''} = querystring.parse(location.search);
     console.log(q);
 
-  const moviesFiltered = movies;
+
   const [formValues, handleInputChange] = useForm({
       searchText: q
   })
 
   const {searchText} = formValues;
+
+  const moviesFiltered = getMoviesByName(searchText);
 
   const handleSearch = (e) =>{
       e.preventDefault();
