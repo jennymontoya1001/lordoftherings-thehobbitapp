@@ -1,5 +1,6 @@
 import React from 'react'
 import { getMoviesByCategory } from '../selectors/getMoviesByCategory'
+import { MovieCard } from './MovieCard';
 
 export const MovieList = ({category}) => {
 
@@ -7,15 +8,15 @@ export const MovieList = ({category}) => {
 
     return (
         <div>
-            <ul>
+            <div className="card-columns">
                 {
                     movies.map(movie => (
-                        <li key={movie.id}>
-                            {movie.name}
-                        </li>
+                       <MovieCard key={movie.id}
+                       {...movie}
+                       />
                     ))
                 }
-            </ul>
+            </div>
             
         </div>
     )
